@@ -9,6 +9,7 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     max-height: 220px;
     list-style: none;
   }
+
   img {
     object-fit: cover;
     background-position: center center;
@@ -16,12 +17,14 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     height: 100%;
     position: relative;
   }
+
   ul li a {
     display: inline-block;
     height: 102px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+
     span {
       color: #FFFFFF;
       font-size: 10px;
@@ -37,6 +40,7 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
+    
     &:after {
       content: "";
       display: block;

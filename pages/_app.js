@@ -19,17 +19,17 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column
   }
 
-  img{
+  img {
     max-width: 100%;
-    heigth: auto;
-    dislay: block;
+    height: auto;
+    display: block;
   }
 
   ${AlurakutStyles}
 `
 
 const theme = {
-  colors: {
+    colors: {
     primary: '#0070f3',
   },
 }
