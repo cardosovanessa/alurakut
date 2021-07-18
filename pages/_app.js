@@ -10,19 +10,20 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: sans-serif;
-    background-color: #d9e6f6
+    background-image: url("https://www.mundojs.com.br/wp-content/uploads/2018/04/background.jpeg");
   }
 
   #__next {
     display: flex;
     min-height: 100vh;
-    flex-direction: column
+    flex-direction: column;
   }
 
   img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 8px;
   }
 
   ${AlurakutStyles}

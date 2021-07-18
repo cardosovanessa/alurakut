@@ -1,4 +1,6 @@
 import React from 'react';
+import nookies from 'nookies';
+import jwt from 'jsonwebtoken';
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/AlurakutCommons';
@@ -21,6 +23,7 @@ function ProfileSidebar(propriedades){
 }
 
 function ProfileRelationsBox(propriedades){
+  console.log(propriedades.items)
   return(
     <ProfileRelationsBoxWrapper>
       <h2 className='smallTitle'>
@@ -34,16 +37,15 @@ function ProfileRelationsBox(propriedades){
   )
 }
 
-export default function Home(){
-  const githubUser = 'cardosovanessa';
-
+export default function Home(propriedades) {
+  const githubUser = propriedades.githubUser;
   const [comunidades, setComunidades] = React.useState([]);
-
+  
   const pessoasFavoritas = [
     'kariariga',
     'daygds12', 
     'luizzzabiassi',
-    'maateusilva', 
+    'juunegreiros', 
     'omariosouto', 
     'peas', 
   ]
@@ -51,7 +53,7 @@ export default function Home(){
   const [seguidores, setSeguidores] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`https://api.github.com/users/cardosovanessa/followers`)
+    fetch(`https://api.github.com/users/${githubUser}/followers`)
     .then((respServidor) => {
       return respServidor.json();
     })
@@ -59,7 +61,7 @@ export default function Home(){
       setSeguidores(respCompleta);
     })
 
-    // API GraphQL
+    /* --> API GraphQL */
     fetch('https://graphql.datocms.com/', {
       method: 'POST',
       headers: {
@@ -80,8 +82,7 @@ export default function Home(){
     .then((response) => response.json()) // Pega o retorno do response.json() e já retorna. 
     .then((respostaCompleta) => {
       const comunidadesDato = respostaCompleta.data.allCommunities
-      console.log(comunidadesDato)
-        setComunidades(comunidadesDato)
+      setComunidades(comunidadesDato)
     })
   }, [])
 
@@ -95,7 +96,7 @@ export default function Home(){
         <div className='welcomeArea' style={{gridArea: 'welcomeArea'}}>
           <Box>
             <h1 className='title'>
-              Bem-Vindo(a)
+              Bem-Vindo(a), { githubUser }
             </h1>
 
             <OrkutNostalgicIconSet />
@@ -107,8 +108,8 @@ export default function Home(){
               e.preventDefault();
               const dadosDoForm = new FormData(e.target);
 
-              console.log('Campo: ', dadosDoForm.get('title'));
-              console.log('Campo: ', dadosDoForm.get('image'));
+              // console.log('Campo: ', dadosDoForm.get('title'));
+              // console.log('Campo: ', dadosDoForm.get('image'));
 
               const comunidade = {
                 title: dadosDoForm.get('title'),
@@ -126,13 +127,12 @@ export default function Home(){
               .then(async (res) => { 
                   
                 const dados = await res.json(); 
-                console.log(dados.regCriado); 
+                // console.log(dados.regCriado); 
                 const comunidade = dados.regCriado; 
                 const comunidadesAtualizadas = [...comunidades, comunidade]; 
                 setComunidades(comunidadesAtualizadas) 
                 
               }) 
-
             }}>
               <div>
                 <input placeholder='Qual vai ser o nome da sua comunidade?' name='title' aria-label='Qual vai ser o nome da sua comunidade?' type='text'/>
@@ -187,3 +187,43 @@ export default function Home(){
     </>
   )
 };
+
+export async function getServerSideProps(ctx) {
+  const cookies = nookies.get(ctx);
+  const token = cookies.USER_TOKEN;
+  const decodedToken = jwt.decode(token);
+
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
+    headers: {
+      Authorization: token
+    }
+  })
+    .then((resposta) => resposta.json())
+  console.log('Usuário Logado: ', isAuthenticated);
+
+  if (!isAuthenticated) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
+
+  const githubUser = decodedToken?.githubUser;
+
+  if (!githubUser) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {
+      githubUser,
+    }
+  }
+}

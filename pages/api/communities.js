@@ -10,7 +10,6 @@ export default async function recebeRequests(req, res){
       ...req.body  
     })
 
-    console.log(regCriado); 
     res.json({
       dados: 'Dados',
       regCriado: regCriado 
@@ -19,6 +18,6 @@ export default async function recebeRequests(req, res){
     
   } 
   res.status(404).json({
-    message: "Ainda não há nada no GET, somente no POST" 
+    message: "Error" 
   })
 }; 

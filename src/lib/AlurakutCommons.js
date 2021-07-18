@@ -5,7 +5,6 @@ import NextLink from 'next/link';
 const BASE_URL = 'http://alurakut.vercel.app/';
 const v = '1';
 
-
 function Link({ href, children, ...props }) {
   return (
     <NextLink href={href} passHref>
@@ -16,9 +15,7 @@ function Link({ href, children, ...props }) {
   )
 }
 
-// ================================================================================================================
-// Menu
-// ================================================================================================================
+// --> Menu
 export function AlurakutMenu({ githubUser }) {
   const [isMenuOpen, setMenuState] = React.useState(false);
   return (
@@ -54,7 +51,8 @@ export function AlurakutMenu({ githubUser }) {
 }
 AlurakutMenu.Wrapper = styled.header`
   width: 100%;
-  background-color: #308BC5;
+  opacity: 90%;
+  background-image: linear-gradient(-90deg, rgb(99, 91, 240) 5%, #00008B 90%);
   .alurakutMenuProfileSidebar {
     background: white;
     position: fixed;
@@ -80,7 +78,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
     .boxLink {
       font-size: 18px;
-      color: #2E7BB4;
+      color: #4682B4;
       -webkit-text-decoration: none;
       text-decoration: none;
       font-weight: 800;
@@ -93,7 +91,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
   .container {
-    background-color: #308BC5;
+    background-image: linear-gradient(-90deg, rgb(99, 91, 240) 5%, #00008B 100%);
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -101,6 +99,7 @@ AlurakutMenu.Wrapper = styled.header`
     justify-content: space-between;
     position: relative;
     z-index: 101;
+    
     @media(min-width: 860px) {
       justify-content: flex-start;
     }
@@ -140,7 +139,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
     input {
       color: #ffffff;
-      background: #5579A1;
+      background: #00008B;
       padding: 10px 42px;
       border: 0;
       background-image: url(${`${BASE_URL}/icons/search.svg`});
@@ -181,9 +180,7 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
   )
 }
 
-// ================================================================================================================
-// AlurakutProfileSidebarMenuDefault
-// ================================================================================================================
+// --> AlurakutProfileSidebarMenuDefault
 export function AlurakutProfileSidebarMenuDefault() {
   return (
     <AlurakutProfileSidebarMenuDefault.Wrapper>
@@ -222,7 +219,7 @@ export function AlurakutProfileSidebarMenuDefault() {
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
     font-size: 12px;
-    color: #2E7BB4;
+    color: #5A5A5A;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -236,9 +233,7 @@ AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   }
 `;
 
-// ================================================================================================================
-// OrkutNostalgicIconSet
-// ================================================================================================================
+// --> OrkutNostalgicIconSet
 export function OrkutNostalgicIconSet(props) {
   return (
     <OrkutNostalgicIconSet.List>
@@ -315,9 +310,7 @@ OrkutNostalgicIconSet.List = styled.ul`
   }
 `;
 
-// ================================================================================================================
-// Login Page
-// ================================================================================================================
+// --> Login Page
 const AlurakutLoginScreen = css`
   :root {
     --backgroundPrimary: #D9E6F6;
@@ -453,9 +446,7 @@ const AlurakutLoginScreen = css`
   }
 `;
 
-// ================================================================================================================
-// Reset Styles
-// ================================================================================================================
+// --> Reset Styles
 export const AlurakutStyles = css`
   *::-webkit-scrollbar {
     width: 8px;
