@@ -2,7 +2,7 @@ import React from 'react';
 // Hook do NextJS
 import { useRouter } from 'next/router';
 import nookies from 'nookies';
-import { jwt } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 export default function LoginScreen() {
   const router = useRouter();
