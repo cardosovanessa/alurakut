@@ -1,17 +1,31 @@
-# Alurakut: Vanessa Cardoso
+<h4 align="center">
+    <br><br>
+    <p align="center">
+      <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-how-to-run-the-project">Run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  </p>
+</h4>
 
-![Série](https://img.shields.io/badge/cardosovanessa-alurakut-red)
-![licence mit](https://img.shields.io/github/license/cardosovanessa/alurakut)
+## 🔖 About
 
-> Projeto da [Imersão React da Alura](https://github.com/alura-challenges/alurakut) reconstruíndo o Orkut.
->
-> Confira agora mesmo por aqui: [**VERCEL**](https://alurakut-cardosovanessa.vercel.app/login)
-
+Search any city and receive the weather status. Based on live Santander Coders.
 <p align="center">
   <img alt="Logo do projeto" src="https://alurakut.vercel.app/logo.svg" />
 </p>
 
 
-## Licença do Projeto
+## 🚀 Technologies
 
-[MIT License](./LICENSE.md) © [Vanessa Cardoso](https://www.linkedin.com/in/cardosofvanessa/)
+- [React](https://pt-br.reactjs.org/)
+- [Vercel](https://vercel.com/)
+- [Dato CMS](https://www.datocms.com/)
+
+## 🏁 How to run the project
+
+#### Clone the repository
+
+```bash
+git clone https://github.com/cardosovanessa/alurakut.git
+cd alurakut
+```
