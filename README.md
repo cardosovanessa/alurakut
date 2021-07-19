@@ -7,9 +7,9 @@
   </p>
 </h4>
 
-## 🔖 About
+## 🚀 About
 
-Search any city and receive the weather status. Based on live Santander Coders.
+Reconstruindo o famoso Orkut.
 <p align="center">
   <img alt="Logo do projeto" src="https://alurakut.vercel.app/logo.svg" />
 </p>
