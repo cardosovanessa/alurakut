@@ -7,7 +7,7 @@
   </p>
 </h4>
 
-## 🚀 About
+### 🚀 Sobre
 
 Reconstruindo o famoso Orkut.
 <p align="center">
@@ -15,17 +15,9 @@ Reconstruindo o famoso Orkut.
 </p>
 
 
-## 🚀 Technologies
+### 🚀 Tecnologias
 
 - [React](https://pt-br.reactjs.org/)
 - [Vercel](https://vercel.com/)
 - [Dato CMS](https://www.datocms.com/)
 
-## 🏁 How to run the project
-
-#### Clone the repository
-
-```bash
-git clone https://github.com/cardosovanessa/alurakut.git
-cd alurakut
-```
